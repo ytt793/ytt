@@ -1,0 +1,10 @@
+<p>This is the triggersForm view.</p>
+<form>
+  <label>Name:
+    <input type="text" ng-model="user.name" ng-model-options="{ updateOn: 'blur' }" /></label><br />
+  <label>
+    Other data:
+    <input type="text" ng-model="user.data" /></label><br />
+</form>
+<pre>username = "{{user.name}}"</pre>
+<pre>userdata = "{{user.data}}"</pre>

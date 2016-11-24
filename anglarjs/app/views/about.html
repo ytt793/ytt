@@ -1,0 +1,28 @@
+<script type="text/ng-template" id="my-custom-messages">
+  <div ng-message="required">This field is required</div>
+  <div ng-message="minlength">This field is too short</div>
+</script>
+
+<form name="myForm">
+  <label>
+    Email address
+    <input type="email"
+           id="email"
+           name="myEmail"
+           ng-model="email"
+           minlength="5"
+           required />
+  </label>
+  <!-- any ng-message elements that appear BEFORE the ng-messages-include will
+       override the messages present in the ng-messages-include template -->
+  <div ng-messages="myForm.myEmail.$error" role="alert">
+    <!-- this required message has overridden the template message -->
+    <div ng-message="required">You did not enter your email address</div>
+
+    <!-- this is a brand new message and will appear last in the prioritization -->
+    <div ng-message="email">Your email address is invalid</div>
+
+    <!-- and here are the generic error messages -->
+    <div ng-messages-include="my-custom-messages"></div>
+  </div>
+</form>
